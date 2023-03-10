@@ -1,0 +1,38 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+<h3>
+  
+<a [title]="'click aqui para ver detalles'"
+[routerLink]="['/products', product.id]">
+{{ product.name }} tiene precio de
+{{ product.price}} €
+
+</a>
+</h3>
+<!-- 
+  esto era lo que tenia la descripcion pero lo quito porque lo hemos metido en el link
+<p *ngIf="product.description">
+  Description: {{ product.description }}
+  </p>
+
+  product.name + ' detalles'
+-->
+<button type="button" (click)="share()">
+Share
+</button>
+
+<div>
+  <button type="button" (click)="addToCart(product)">Buy</button>
+</div>
+<app-product-alerts
+  [product]="product"
+  (notify)="onNotify()">
+</app-product-alerts>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
